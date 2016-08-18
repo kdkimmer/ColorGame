@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <body onload="doGame();">
+        <script> 
+		var correct = false;
+		var guesses = 0;
+		var guess_input_text;
+		var guess_input;
+		var colors;
+		var randomColor;
+		var target;
+
+		function doGame(){
+			colors = ["aqua", "blue", "yellow","cadetblue", "darkgreen", "gainsboro", "indigo", "lawngreen", "orchid", "papayawhip", "rosybrown"];
+			colors.sort();
+			randomColor = Math.floor(Math.random() * colors.length);
+			target = colors[randomColor];
+			alert(target);
+
+			while(!correct){
+				guess_input_text = prompt("Let's play the Color Guessing Game!  I have choosen a color and now you guess it.  Please enter your color of choice from this list: " + colors.join(", "));
+				guess_input = guess_input_text.toLowerCase();
+				guesses += 1;
+				if( guess_input == target){
+					alert("Your Guess is Right.Congratulations!");
+					correct = true;
+				} 
+			}
+		}
+		</script>
+	</body>
+</html>	
